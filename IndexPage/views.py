@@ -22,7 +22,7 @@ class HomeProjectListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context["blogs"] = Blog.objects.order_by("-created_time").all
         context["services"] = Service.objects.all()
-        context["comments"] = Comment.objects.all()
+        context["comments"] = Comment.objects.filter(is_approved=True)
         return context
 
 
@@ -42,12 +42,11 @@ class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
         return response
 
 
-#region  قسمت هایی از سایت وایلار که هنوز مونده
+# region  قسمت هایی از سایت وایلار که هنوز مونده
 
 
 # 1-نمایش نظرات هر مقاله
 # 2-سیستم جست و جو و سیستم صفحه بندی رو درست کنم
 
 
-
-#endregion
+# endregion

@@ -44,8 +44,10 @@
                     {% for project in projects %}
                         <div class="swiper-slide text-center group/proj cursor-pointer">
                         <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="http://127.0.0.1:8000/projects/{{ project.pk }}">
-                                <img class="relative" src="{{ project.image.url }}" alt="" srcset="">
+                            
+                            <a href="{% url project.get_absolute_url %}">
+
+                                    <img class="relative" src="{{ project.image.url }}" alt="" srcset="">
                                 <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
                             </a>
                         </div>

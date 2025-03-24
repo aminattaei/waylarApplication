@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایجاد مقاله جدید</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            direction: rtl;
+        }
+        .container {
+            max-width: 700px;
+            margin-top: 50px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .preview-img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mb-4 text-center">ایجاد مقاله جدید</h2>
+    <form>
+        <div class="mb-3">
+            <label for="title" class="form-label">عنوان مقاله</label>
+            <input type="text" class="form-control" id="title" placeholder="عنوان مقاله را وارد کنید">
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">دسته‌بندی</label>
+            <select class="form-select" id="category">
+                <option selected>انتخاب کنید...</option>
+
+                {% for category in categories %}
+                    <option value="{{ category.title }}">{{ category.title }}</option>
+                {% endfor %}
+                
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">تصویر شاخص</label>
+            <input class="form-control" type="file" id="image" accept="image/*" onchange="previewImage(event)">
+            <img id="imagePreview" class="preview-img">
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">متن مقاله</label>
+            <textarea class="form-control" id="content" rows="5" placeholder="متن مقاله را وارد کنید"></textarea>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">ارسال مقاله</button>
+            <button type="reset" class="btn btn-danger">پاک کردن</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function previewImage(event) {
+        let reader = new FileReader();
+        reader.onload = function(){
+            let output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

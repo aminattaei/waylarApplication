@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Blog
+
+from .models import Blog, Category
 from comments.models import Comment
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.urls import reverse_lazy
 
 from .forms import CommentForm
 
@@ -19,7 +22,6 @@ class BlogListView(generic.ListView):
     context_object_name = "articles"
     model = Blog
     paginate_by = 2
-
 
 
 class ArticleListViewSet(ModelViewSet):
@@ -50,3 +52,15 @@ def Post_Detail(request, pk):
 
     context = {"form": form, "comments": comments, "post": post}
     return render(request, "articles/single-blog.html", context=context)
+
+
+class Create_new_post(LoginRequiredMixin, generic.CreateView):
+    model = Blog
+    template_name = "articles/Create_new_post.html"
+    success_url = reverse_lazy("Blog_list")
+    fields = "__all__"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
+        return context
