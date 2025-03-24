@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبسایت وایلار</title>
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}"> <!-- اگه از تیلویند استفاده می‌کنی -->
+</head>
+<body>
+    <!-- محتوای اصلی صفحه اینجا میاد -->
+
+    <footer class="p-10 bg-slate-800 text-white">
+        <div class="container mx-auto max-w-screen-xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 leading-8">
+                <!-- بخش لوگو و توضیحات -->
+                <div>
+                    <img class="mb-4 w-32" src="{% static 'assets/images/logo-footer.png' %}" alt="لوگو وایلار">
+                    <p class="text-sm text-gray-300">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است.
+                    </p>
+                </div>
+
+                <!-- دسترسی سریع -->
+                <div class="text-right md:text-center">
+                    <h3 class="font-bold text-white mb-4 text-lg">دسترسی سریع</h3>
+                    <ul class="text-gray-300">
+                        <li><a href="http://127.0.0.1:8000/" class="hover:text-yellow-500">صفحه اصلی</a></li>
+                        <li><a href="http://127.0.0.1:8000/about-us" class="hover:text-yellow-500">درباره ما</a></li>
+                        <li><a href="http://127.0.0.1:8000/contact-us" class="hover:text-yellow-500">تماس با ما</a></li>
+                        <li><a href="http://127.0.0.1:8000/projects/" class="hover:text-yellow-500">پروژه‌ها</a></li>
+                        <li><a href="http://127.0.0.1:8000/services/" class="hover:text-yellow-500">خدمات</a></li>
+                    </ul>
+                </div>
+
+                <!-- خبرنامه -->
+<form action="{% url 'indexpage:NewsPaper_create' %}" method="post">
+    {% csrf_token %}
+    <div>
+        <h3 class="font-bold text-white mb-4 text-lg">عضویت در خبرنامه</h3>
+        <div class="form-control">
+            <label class="label">
+                <span class="text-gray-300">ایمیل خود را وارد کنید</span>
+            </label>
+            <div class="relative">
+                <input type="email" placeholder="username@gmail.com" class="input input-bordered w-full text-black" name="email"/>
+                <button class="btn bg-yellow-500 hover:bg-yellow-600 absolute top-0 left-0 rounded-r-none">ثبت</button>
+            </div>
+        </div>
+        <!-- نمایش پیام‌ها زیر فرم -->
+        {% if messages %}
+        <div class="mt-4">
+            {% for message in messages %}
+                <p class="p-2 text-white {% if message.tags == 'success' %} bg-green-600 {% else %} bg-red-600 {% endif %} rounded-md">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</form>
+                
+    </footer>
+
+    <footer class="footer footer-center p-4 bg-slate-700 text-white">
+        <div>
+            <p>Copyright © 2025 - سایت وایلار توسط امین عطایی طراحی شده است و هر گونه نسخه برداری بررسی خواهد شد</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'node_modules/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'src/js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

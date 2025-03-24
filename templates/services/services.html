@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    خدمات ما
+{% endblock title %}
+
+{% block content %}
+
+<div class="bg-[url('{% static "assets/images/ber.jpg" %}')] bg-no-repeat h-40 md:h-64 relative">
+  <div class="flex justify-center">
+      <div class="text-sm absolute top-1/4 md:top-1/2">
+          <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">خدمات ما</h2>
+          <div class="breadcrumbs flex justify-center">
+              <ul class="">
+                <li><a>خانه</a></li> 
+                <li>خدمات ما</li>
+              </ul>
+          </div>
+        </div>
+  </div>
+</div>
+
+</section>
+
+<section class="mb-20 px-4">
+  <div class="container mx-auto max-w-screen-xl">
+      <div class="container mx-auto max-w-screen-xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+            {% for service in Services %}
+                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+                    <i class="{{ service.icon_class }} text-4xl pb-3"></i>
+                    
+                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">
+                        {{ service.title }}
+                    </h3>
+                    <p class="mt-2">{{ service.description }}</p>
+                </div>
+            {% endfor %}
+            
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock content %}

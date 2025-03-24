@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    جزییات پروژه {{ project.title }}
+{% endblock title %}  
+
+{% block content %}
+
+
+
+<div class="bg-[url('{{ project.image.url }}')] bg-no-repeat h-40 md:h-64 relative">
+  <div class="flex justify-center">
+      <div class="text-sm absolute top-1/4 md:top-1/2">
+          <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">جزئیات پروژه</h2>
+          <div class="breadcrumbs flex justify-center">
+              <ul class="">
+                <li><a>خانه</a></li> 
+                <li>جزئیات پروژه</li>
+              </ul>
+          </div>
+        </div>
+  </div>
+</div>
+
+</section>
+
+<section class="mb-20 px-4">
+  <div class="container mx-auto max-w-screen-xl">
+      <div class="bg-white rounded-2xl p-4">
+          <div class="grid grid-cols-12 gap-4 lg:gap-8 mb-20">
+            <div class="col-span-12 md:col-span-5">
+              <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl p-4">
+                <h1 class="mb-2 text-base font-YekanBakh-Bold">{{ project.title }}</h1>
+                <div class="flex items-center gap-4 text-xs">
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                            {{ project.start_time|date }}                                
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                          </svg>
+                          {{ project.categories }}                              
+                    </span>
+                </div>
+            </div>
+              <div class="overflow-x-auto">
+                <table class="table table-zebra">
+
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                      <th>نام پروژه:</th>
+                      <td>{{ project.title }}</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                      <th>مساحت:</th>
+                      <td>{{ project.area }} هزار متر</td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                      <th>تاریخ شروع:</th>
+                      <td>{{ project.start_time|date }}</td>
+                    </tr>
+                    <tr>
+                      <th>زیربنا:</th>
+                      <td>{{ project.infrastructure }}</td>
+                    </tr>
+                    <tr>
+                      <th>ارزش مالی:</th>
+                      <td>{{ project.Financial_value }} میلیارد</td>
+                    </tr>
+                    <tr>
+                      <th>محل پروژه:</th>
+                      <td>{{ project.Project_location }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-4 rounded-2xl p-4 bg-slate-100">
+                <h3 class="text-xl text-center font-YekanBakh-ExtraBold mb-2">مهندس پروژه:</h3>
+
+                <div class="flex justify-center items-center mb-2">
+                  <div class="avatar">
+                      <div class="w-24 rounded-full">
+                        <img src="{{ project.image.url }}" />
+                      </div>
+                    </div>
+                    <div class="leading-8 mr-2">
+                      <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">{{ project.Project_engineer }}</h3>
+                      
+                    </div>
+              </div>
+              </div>
+            </div>
+            <div class="col-span-12 md:col-span-7">
+              <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper project-main">
+                <div class="swiper-wrapper">
+
+                  <div class="swiper-slide">
+                    <img class="rounded-xl" src="{{project.image.url}}" />
+                  </div>
+
+                  
+                </div>
+
+                <div class="swiper-button-next after:text-sm"></div>
+                <div class="swiper-button-prev after:text-sm"></div>
+              </div>
+
+              <!-- <div thumbsSlider="" class="swiper gall-project mt-4">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img class="rounded-xl cursor-pointer" src="{% static "assets/images/blog-2.jpg" %}" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img class="rounded-xl cursor-pointer" src="{% static "assets/images/blog-3.jpg" %}" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img class="rounded-xl cursor-pointer" src="{% static "assets/images/blog-4.jpg" %}" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img class="rounded-xl cursor-pointer" src="{% static "assets/images/blog-5.jpg" %}" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img class="rounded-xl cursor-pointer" src="{% static "assets/images/blog-6.jpg" %}" />
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+
+          </div>
+          <section class="px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره پروژه</h2>
+            </div>
+            <p class="mb-4 leading-8">
+              {{ project.content }}
+          </p>
+
+        </section>
+      </div>
+  </div>
+</section>
+
+
+
+
+{% endblock content %}

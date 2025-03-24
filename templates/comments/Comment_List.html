@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظرات کاربران در مورد مجموعه وایلار</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        hr {
+            border: 1px solid #eee;
+            margin: 20px 0;
+        }
+        .comment-list {
+            list-style: none;
+            padding: 0;
+        }
+        .comment-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .comment-author {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .comment-job {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .comment-post {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .comment-content {
+            line-height: 1.6;
+        }
+        .comment-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: block; /* این خط باعث می‌شه عکس به‌عنوان بلوک عمل کنه */
+            margin-left: auto; /* این دو خط عکس رو وسط می‌برن */
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>نظرات کاربران</h1>
+    <hr>
+    <ul class="comment-list">
+        {% for comment in comments %}
+            <li class="comment-item">
+                <h3 class="comment-author">{{ comment.author }}</h3>
+                <small class="comment-job">{{ comment.job }}</small>
+                <p class="comment-post">{{ comment.post }}</p>
+                <hr>
+                <div class="comment-content">{{ comment.content }}</div>
+                <img class="comment-image" src="{{ comment.image.url }}" alt="{{ comment.post }}">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

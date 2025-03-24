@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    خانه
+{% endblock title %}
+{% block content %}
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">برخی از خدمات شرکت</h2>
+            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {% for service in services %}
+                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
+                        {{service.icon_class}}
+                    </svg>
+                    
+                    
+                    
+                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ service.title }} </h3>
+                    <p class="mt-2">{{ service.description|slice:150 }}...</p>
+                </div>
+            {% endfor %}
+            
+
+        
+    </div>        
+</section>
+
+<section class="my-20 bg-slate-800 px-4">
+    <div class="container mx-auto max-w-screen-2xl">
+        <div class="py-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack">پروژه ها</h2>
+                <p class="text-white mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+            </div>
+
+
+            <div class="swiper project">
+                <div class="swiper-wrapper">
+
+                    {% for project in projects %}
+                        <div class="swiper-slide text-center group/proj cursor-pointer">
+                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                            <a href="http://127.0.0.1:8000/projects/{{ project.pk }}">
+                                <img class="relative" src="{{ project.image.url }}" alt="" srcset="">
+                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                            </a>
+                        </div>
+                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                            <h3 class="font-YekanBakh-Bold text-sm">{{ project.title }}</h3>
+                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                        </figcaption>
+                        </div>
+                    {% endfor %}
+                  
+
+
+
+                  <div class="swiper-slide text-center group/proj cursor-pointer">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                        <a href="single-project.html">
+                            <img class="relative" src="../assets/images/blog-2.jpg" alt="" srcset="">
+                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                        </a>
+                    </div>
+                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره دو</h3>
+                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                    </figcaption>
+                  </div>
+                  <div class="swiper-slide text-center group/proj cursor-pointer">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                        <a href="single-project.html">
+                            <img class="relative" src="../assets/images/blog-3.jpg" alt="" srcset="">
+                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                        </a>
+                    </div>
+                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره سه</h3>
+                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                    </figcaption>
+                  </div>
+                  <div class="swiper-slide text-center group/proj cursor-pointer">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                        <a href="single-project.html">
+                            <img class="relative" src="../assets/images/blog-4.jpg" alt="" srcset="">
+                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                        </a>
+                    </div>
+                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره چهار</h3>
+                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                    </figcaption>
+                  </div>
+                  <div class="swiper-slide text-center group/proj cursor-pointer">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                        <a href="single-project.html">
+                            <img class="relative" src="../assets/images/blog-5.jpg" alt="" srcset="">
+                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                        </a>
+                    </div>
+                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره پنج</h3>
+                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                    </figcaption>
+                  </div>
+                  <div class="swiper-slide text-center group/proj cursor-pointer">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                        <a href="single-project.html">
+                            <img class="relative" src="{% static "images/blog-6.jpg" %}" alt="" srcset="">
+                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
+                        </a>
+                    </div>
+                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره شش</h3>
+                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                    </figcaption>
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره شرکت</h2>
+        <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+    </div>
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 md:col-span-4">
+                <img class="rounded-2xl" src="../assets/images/54.jpg" alt="">
+            </div>
+            <div class="col-span-12 md:col-span-8 leading-8">
+                <p class="mb-4">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+                <a href="about-us.html" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
+            </div>
+        </div>  
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">نظرات کاربران</h2>
+            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+        </div>
+        <div class="swiper customer">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="flex items-center justify-center">
+
+                    {% for comment in comments %}
+                        <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
+                                <p>
+                                    {{ comment.content|slice:150 }}
+                                </p>
+                                <div class="flex items-center justify-center mt-4">
+                                    <div class="avatar ml-4">
+                                        <div class="w-24 rounded-full">
+                                        <img src="{{ comment.image.url }}" />
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center">
+                                        <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">{{ comment.author }}</h3>
+                                        <p>{{ comment.job }}</p>
+                                    </div>
+
+                                </div>
+                        </div>
+                    {% endfor %}
+                    
+
+                </div>
+              </div>
+              
+            </div>
+            <div class="swiper-pagination static mt-4"></div>
+          </div> 
+    </div>
+    
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">اخبار و مقالات</h2>
+            <p class="text-stone-700 mt-2">مقالات مارا از اینجا دنبال کنید</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+            {% for blog in blogs %}
+
+                <div class="bg-white rounded-2xl overflow-hidden">
+                    <div class="relative">
+                        <div class="flex justify-center">
+                            <a href="http://127.0.0.1:8000/articles/{{ blog.id }}" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: کسب و کار</a>
+                        </div>
+
+                    <a href="http://127.0.0.1:8000/articles/{{ blog.id }}"><img src="{{ blog.image.url }}" alt="{{ blog.title }}"></a>
+                    </div>
+
+                    <div class="p-4 leading-8 w-full">
+                        <a href="http://127.0.0.1:8000/articles/{{ blog.id }}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{ blog.title }}</h3></a>
+                        <p>{{ blog.content|slice:150 }}</p>
+                        <a href="http://127.0.0.1:8000/articles/{{ blog.id }}" class="text-yellow-400">مشاهده بیشتر »</a>
+                    </div>
+                    
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="my-20 px-4">
+    <div class="container mx-auto max-w-screen-xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">همکاران ما</h2>
+            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+        </div>
+        <div class="swiper partners">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-1.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-2.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-3.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-5.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-6.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex justify-center">
+                        <img src="{% static "assets/images/logo-4.png" %}" alt="">
+                    </div>
+                </div>
+
+              </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
