@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .search-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <h3 class="mb-4">نتیجه ی جستجو درباره ی {{query}}</h3>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="جستجو کنید..." value="دنبال چه چیزی میگردید؟">
+            </div>
+            
+            <ul class="list-group">
+                {% for res in result %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="#" class="text-decoration-none">یک نتیجه</a>
+                        <span class="badge bg-primary">{{ res }}</span>
+                    </li>
+                {% endfor %}
+                
+
+                
+            </ul>
+
+        </div>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</body>
+</html>

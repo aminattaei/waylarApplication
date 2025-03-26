@@ -9,4 +9,5 @@ urlpatterns = [
     path("", views.ProjectListView.as_view(), name="projects_list"),
     path("<int:pk>/", views.ProjectDetailView.as_view(), name="Project_detail"),
     path("api/", include(router.urls)),
+    
 ]

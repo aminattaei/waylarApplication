@@ -3,7 +3,6 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import logout
 
 
 from projects.models import Project
@@ -42,11 +41,18 @@ class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
         return response
 
 
-# region  قسمت هایی از سایت وایلار که هنوز مونده
+def Search_bar(request):
+    query = request.GET.get("q", "").strip()
+    if not query:
+        messages.error(request, "لطفا یک عبارت برای جستجو وارد کنید")
+        return render(request, "IndexPage/result_search.html", context={"query": query})
+    try:
+        result = Project.objects.filter(title__icontains=query)
+        result |= Blog.objects.filter(title__icontains=query)
+    except Exception as e:
+        messages.error(request, "خطایی در انجام جستجو رخ داده است")
+        result = []
+        
 
-
-# 1-نمایش نظرات هر مقاله
-# 2-سیستم جست و جو و سیستم صفحه بندی رو درست کنم
-
-
-# endregion
+    context = {"query": query, "result": result}
+    return render(request, "IndexPage/result_search.html", context=context)
