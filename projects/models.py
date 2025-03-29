@@ -26,7 +26,6 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-
         return reverse("Project_detail", kwargs={"pk": self.pk})
 
 
@@ -47,3 +46,6 @@ class ProjectEngineer(models.Model):
 class Category(models.Model):
     title = models.CharField(_("عنوان دسته بندی"), max_length=50)
     description = models.TextField(_("توضیح دسته بندی"))
+
+    def __str__(self):
+        return self.title

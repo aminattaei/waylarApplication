@@ -45,7 +45,7 @@
                         <div class="swiper-slide text-center group/proj cursor-pointer">
                         <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
                             
-                            <a href="{% url project.get_absolute_url %}">
+                            <a href="http://127.0.0.1:8000/projects/{{ project.pk }}/">
 
                                     <img class="relative" src="{{ project.image.url }}" alt="" srcset="">
                                 <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
@@ -57,70 +57,6 @@
                         </figcaption>
                         </div>
                     {% endfor %}
-                  
-
-
-
-                  <div class="swiper-slide text-center group/proj cursor-pointer">
-                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                        <a href="single-project.html">
-                            <img class="relative" src="../assets/images/blog-2.jpg" alt="" srcset="">
-                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
-                        </a>
-                    </div>
-                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره دو</h3>
-                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                    </figcaption>
-                  </div>
-                  <div class="swiper-slide text-center group/proj cursor-pointer">
-                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                        <a href="single-project.html">
-                            <img class="relative" src="../assets/images/blog-3.jpg" alt="" srcset="">
-                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
-                        </a>
-                    </div>
-                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره سه</h3>
-                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                    </figcaption>
-                  </div>
-                  <div class="swiper-slide text-center group/proj cursor-pointer">
-                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                        <a href="single-project.html">
-                            <img class="relative" src="../assets/images/blog-4.jpg" alt="" srcset="">
-                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
-                        </a>
-                    </div>
-                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره چهار</h3>
-                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                    </figcaption>
-                  </div>
-                  <div class="swiper-slide text-center group/proj cursor-pointer">
-                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                        <a href="single-project.html">
-                            <img class="relative" src="../assets/images/blog-5.jpg" alt="" srcset="">
-                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
-                        </a>
-                    </div>
-                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره پنج</h3>
-                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                    </figcaption>
-                  </div>
-                  <div class="swiper-slide text-center group/proj cursor-pointer">
-                    <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                        <a href="single-project.html">
-                            <img class="relative" src="{% static "images/blog-6.jpg" %}" alt="" srcset="">
-                            <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>    
-                        </a>
-                    </div>
-                    <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                        <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره شش</h3>
-                        <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                    </figcaption>
-                  </div>
                 </div>
               </div>
 
@@ -137,7 +73,7 @@
     <div class="container mx-auto max-w-screen-xl">
         <div class="grid grid-cols-12 gap-4">
             <div class="col-span-12 md:col-span-4">
-                <img class="rounded-2xl" src="../assets/images/54.jpg" alt="">
+                <img class="rounded-2xl" src="{% static "assets/images/54.jpg" %}" alt="">
             </div>
             <div class="col-span-12 md:col-span-8 leading-8">
                 <p class="mb-4">
@@ -168,7 +104,15 @@
                                 <div class="flex items-center justify-center mt-4">
                                     <div class="avatar ml-4">
                                         <div class="w-24 rounded-full">
-                                        <img src="{{ comment.image.url }}" />
+                                              <img src="{{ comment.image.url }}" />
+                                                
+
+                                            <!-- {% if comment.image %}
+                                              <img src="{{ comment.image.url }}" />
+                                                {% else %}
+                                                    <img src="{% static "default-avatar.jpg" %}" />
+                                            {% endif %} -->
+                                            
                                         </div>
                                     </div>
                                     <div class="flex flex-col items-center">

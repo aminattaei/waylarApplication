@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Project,ProjectEngineer
+from django.urls import reverse_lazy
+from .models import Project, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from rest_framework import viewsets
@@ -26,7 +27,7 @@ class ProjectListView(generic.ListView):
     context_object_name = "projects"
 
 
-class ProjectDetailView(LoginRequiredMixin,generic.DetailView):
+class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "projects/single-project.html"
     context_object_name = "project"
     model = Project
@@ -38,5 +39,34 @@ class ProjectListApiViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 
-def ProjectEngineerDetail(request):
-    pass
+class Create_new_project(LoginRequiredMixin, generic.CreateView):
+    template_name = "projects/create_new_project.html"
+    model = Project
+    success_url = reverse_lazy("projects_list")
+    fields = [
+        "title",
+        "image",
+        "area",
+        "infrastructure",
+        "Financial_value",
+        "Project_location",
+    ]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
+        return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        categories_data = self.request.POST.getlist("categories")  #
+        category_instances = []
+        for cat in categories_data:
+            if cat.startswith("new-"):
+                new_category, created = Category.objects.get_or_create(name=cat[4:])
+                category_instances.append(new_category)
+            else:
+                category_instances.append(Category.objects.get(id=cat))
+
+        self.object.categories.set(category_instances)
+        return response

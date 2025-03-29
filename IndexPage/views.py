@@ -28,7 +28,6 @@ class HomeProjectListView(generic.ListView):
 class FaqTemplateView(generic.TemplateView):
     template_name = "faq/faq.html"
 
-
 class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "partials/_footer.html"
     model = NewsPaper
@@ -56,3 +55,6 @@ def Search_bar(request):
 
     context = {"query": query, "result": result}
     return render(request, "IndexPage/result_search.html", context=context)
+
+
+#TODO: سیستم جستجو رو درست کن حالش خوب نیست هم از نظر قالب هم از نظر کارکرد

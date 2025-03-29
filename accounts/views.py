@@ -5,8 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm, LoginUserForm
 from django.views import generic
-from django.contrib import messages
-from django.views.decorators.http import require_POST, require_GET
+from django.views.decorators.http import require_GET
 
 
 def redirect_if_authenticated(view_func):
@@ -56,15 +55,20 @@ def login_user_account(request):
             password = form.cleaned_data["password"]
             user = authenticate(request, username=username, password=password)
             if user:
+                messages.success(request,'شما با موفقیت وارد شدید!')
+                print(messages)
                 login(request, user)
-                messages.success(request, "با موفقیت وارد شدید!")
                 next_url = request.GET.get("next", "indexpage:home_index")
                 return redirect(next_url)
+
             messages.error(request, "نام کاربری یا رمز عبور صحیح نمی‌باشد")
+            print(messages)
     else:
         form = LoginUserForm()
 
-    return render(request, "registration/login.html", {"form": form})
+    return render(
+        request, "registration/login.html", {"form": form, "messages": messages}
+    )
 
 
 @login_required

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایجاد پروژه جدید</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-4">ایجاد پروژه جدید</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">عنوان پروژه</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">دسته‌بندی</label>
+                    <select name="categories" class="form-select" multiple>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">تصویر پروژه</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">مساحت پروژه</label>
+                    <input type="text" name="area" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">زیربنا</label>
+                    <input type="number" name="infrastructure" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">ارزش مالی</label>
+                    <input type="number" name="financial_value" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">مکان پروژه</label>
+                    <input type="text" name="project_location" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">متن پروژه</label>
+                    <textarea name="content" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">ثبت پروژه</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

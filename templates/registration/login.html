@@ -27,11 +27,20 @@
                               </label>
                             <input type="text" class="input input-bordered w-full my-2" name="username"/>
                             <label class="label">
-                                <span class="label-text-alt">پسورد:</span>
+                                <span class="label-text-alt">رمز عبور:</span>
                               </label>
                             <input type="password" class="input input-bordered w-full my-2" name="password" />
                             <button class="btn btn-primary w-full my-4">ورود</button>
                         </form>
+                        
+                        <hr>
+
+                        {% for msg in messages %}
+                            <p class="alert alert-danger">{{ msg }}</p>
+                        {% endfor %}
+                        
+                        <br>
+
                         <p class="text-center my-4">رمز عبور خود را <a href="http://127.0.0.1:8000/accounts/password_change">فراموش </a>کرده اید؟</p>
                         <div class="divider my-8">یا</div>
                         <p class="text-center my-4"><a href="http://127.0.0.1:8000/accounts/register/">حساب کاربری ندارید !!!</a></p>

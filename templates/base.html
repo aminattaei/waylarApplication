@@ -9,6 +9,9 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+          <link rel="shortcut icon" href="{% static "HomeIcon.png" %}" type="image/x-icon">
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
           <link rel="stylesheet" href="{% static "node_modules/swiper/swiper-bundle.min.css" %}">
           <link rel="stylesheet" href="{% static "build/style.css" %}">
@@ -22,7 +25,7 @@
      
       <body style="text-align: right;" class="font-YekanBakh-Regular text-sm bg-slate-50;">
       
-          <section class="mb-8 bg-white md:bg-transparent">
+          <section style="font-size: 15px;" class="mb-8 bg-white md:bg-transparent">
               <div class="container mx-auto max-w-screen-xl relative">
                   <div class="p-6 md:absolute bg-white rounded-2xl left-3 top-3 right-3 z-10">
                       <div class="flex justify-between items-center">
@@ -55,13 +58,13 @@
                                             </svg>
                                           </label> 
                                         </div> 
-                                      <li><a href="http://127.0.0.1:8000/">صفحه اصلی</a></li>
-                                      <li><a href="http://127.0.0.1:8000/services">خدمات ما</a></li>
-                                      <li><a href="http://127.0.0.1:8000/projects/">پروژه ها</a></li>
-                                      <li><a href="http://127.0.0.1:8000/faq/">سوالات متداول</a></li>
-                                      <li><a href="http://127.0.0.1:8000/articles/">وبلاگ</a></li>
-                                      <li><a href="about-us.html">درباره ما</a></li>
-                                      <li><a href="http://127.0.0.1:8000/contact-us/">تماس با ما</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/">خانه</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/services">خدمات ما</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/projects/">پروژه ها</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/faq/">سوالات متداول</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/articles/">وبلاگ</a></li>
+                                      <li><a style="text-decoration: none;" href="about-us.html">درباره ما</a></li>
+                                      <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/contact-us/">تماس با ما</a></li>
           
                                     </ul>
                                   </div>
@@ -73,13 +76,13 @@
                           </div>
                           <div class="hidden lg:block">
                               <ul class="flex gap-x-8">
-                                  <li><a href="http://127.0.0.1:8000/">صفحه اصلی</a></li>
-                                  <li><a href="http://127.0.0.1:8000/services/">خدمات ما</a></li>
-                                  <li><a href="http://127.0.0.1:8000/projects/">پروژه ها</a></li>
-                                  <li><a href="http://127.0.0.1:8000/faq/">سوالات متداول</a></li>
-                                  <li><a href="http://127.0.0.1:8000/articles/">وبلاگ</a></li>
-                                  <li><a href="about-us.html">درباره ما</a></li>
-                                  <li><a href="http://127.0.0.1:8000/contact-us/">تماس با ما</a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/">خانه</a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/services/">خدمات</a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/projects/">پروژه</a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/faq/">سوالات</a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/articles/">وبلاگ</a></li>
+                                  <li><a style="text-decoration: none;" href="about-us.html">درباره  </a></li>
+                                  <li><a style="text-decoration: none;" href="http://127.0.0.1:8000/contact-us/">تماس</a></li>
                               </ul>
                           </div>
                         </div>
@@ -89,7 +92,7 @@
 
                             {% if user.is_authenticated %}
                                 <div class="flex items-center gap-2">
-                                    <p class="text-3xl font-bold underline">سلام {{ user.username }} !</p>
+                                    <p style="text-decoration: none;" class="text-1xl font-bold underline">سلام {{ user.username }} !</p>
                                     <form method="post" action="{% url 'logout' %}">
                                         {% csrf_token %}
                                         <button type="submit" class="btn btn-danger">
@@ -106,7 +109,6 @@
                             {% endif %}
 
                         
-
 
 
                               <dialog id="my_modal_3" class="modal">
@@ -130,11 +132,11 @@
                                     </div>
                                   </form>
                                 </dialog>
-                              {% comment %} <a class="p-2.5 flex items-center cursor-pointer" onclick="my_modal_3.showModal()">
+                              <a class="p-2.5 flex items-center cursor-pointer" onclick="my_modal_3.showModal()">
                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                     </svg>          
-                              </a> {% endcomment %}
+                              </a>
                           </div>
                   
 
